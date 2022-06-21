@@ -1,6 +1,6 @@
 <h2>Course List</h2>
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label"> Filber By:</label>
+    <label class="col-sm-2 col-form-label"> Filter By:</label>
     <div class="col-sm-10">
         <input [(ngModel)]="filter" class="form-control">
     </div>
@@ -26,7 +26,9 @@
             <td>{{ course.code | uppercase | replace: '-': ' '}}</td>
             <td>{{ course.releaseDate | date: 'dd/MM/yyyy'}}</td>
             <td><app-star [rating]="course.rating"></app-star></td>
-            <td></td>
+            <td>
+                <a [routerLink]="['/courses/info', course.id]" class="btn btn-primary">Edit</a>
+            </td>
         </tr>
     </tbody>
 </table>
